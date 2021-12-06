@@ -1,2 +1,3 @@
 venv
 .eggs
+*__pycache__*
