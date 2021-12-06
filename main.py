@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 from flask import Flask
+from router.router import main_router
 
 app = Flask(__name__)
+app.register_blueprint(main_router)
 
 if __name__ == '__main__':
     app.run(
