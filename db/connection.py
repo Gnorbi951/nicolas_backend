@@ -9,11 +9,6 @@ import psycopg2.extras
 
 def get_connection_string():
     # to do this, please define these environment variables first
-    # user_name = os.environ.get('DB_USER')
-    # password = os.environ.get('DB_PASSWORD')
-    # host = os.environ.get('DB_HOST')
-    # database_name = os.environ.get('PSQL_DB_NAME')
-
     # use only for testing
     user_name = os.getenv("DB_USER_NAME")
     database_name = os.getenv("DB_NAME")
@@ -65,17 +60,12 @@ def connection_handler(function):
 def initdb_queries():
     return (
                 ["""
-                    CREATE TABLE IF NOT EXISTS scraped_data(
-                        timestamp TIMESTAMP UNIQUE NOT NULL,
-                        json_data TEXT NOT NULL
-                    );
-                    CREATE TABLE IF NOT EXISTS plot(
-                        timestamp TIMESTAMP UNIQUE NOT NULL,
-                        json_data TEXT NOT NULL
-                    );
-                    CREATE TABLE IF NOT EXISTS top_ten_one_week_mention(
-                        timestamp TIMESTAMP UNIQUE NOT NULL,
-                        json_data TEXT NOT NULL
+                    CREATE TABLE IF NOT EXISTS items(
+                        id VARCHAR UNIQUE NOT NULL,
+                        name VARCHAR NOT NULL,
+                        image_link VARCHAR NOT NULL,
+                        description TEXT NOT NULL,
+                        view_count INT NOT NULL
                     );
                 """
                 ]
