@@ -1,4 +1,5 @@
 """Setup for map evaluator"""
+import psycopg2
 import setuptools
 
 with open("README.md", "r", encoding="utf8") as f:
@@ -16,7 +17,7 @@ setuptools.setup(
     python_requires=">=3.8",
     # This is a string list of dependent packages.These packages are installed automatically with pip,
     # requirements.txt is redundant.
-    install_requires=["flask"],
+    install_requires=["flask", "psycopg2-binary"],
     setup_requires=['setuptools_scm'],
     # These dependencies won't be installed unless specified like: `pip install nicolas_cage_webshop_backend[test]`
     # Previously `tests_require` could be used but it is now deprecated.
